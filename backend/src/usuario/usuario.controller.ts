@@ -12,9 +12,7 @@ export class UsuarioController {
   }
 
   @Get()
-  async listarTodos(@Body() body) {
-    return await {
-      body,
-    };
+  async listarTodos() {
+    return await { usuario: [] };
   }
 }
