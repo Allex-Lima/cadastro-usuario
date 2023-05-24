@@ -10,4 +10,11 @@ export class UsuarioController {
       senha,
     };
   }
+
+  @Get()
+  async listarTodos(@Body() body) {
+    return await {
+      body,
+    };
+  }
 }
