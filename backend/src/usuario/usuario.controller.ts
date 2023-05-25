@@ -5,6 +5,7 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 
 @Controller('usuarios')
@@ -29,6 +30,14 @@ export class UsuarioController {
     return await {
       usuarios: {},
       params,
+    };
+  }
+
+  @Put(':id')
+  async atualizar(@Body() body, @Param() params) {
+    return await {
+      params,
+      body,
     };
   }
 }
