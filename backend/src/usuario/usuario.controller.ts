@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -39,5 +40,10 @@ export class UsuarioController {
       params,
       body,
     };
+  }
+
+  @Delete(':id')
+  async deletarUsuario(@Param() params) {
+    return await { params };
   }
 }
