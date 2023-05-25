@@ -1,10 +1,18 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 
 @Controller('usuarios')
 export class UsuarioController {
   @Post()
-  async criar(@Body() { email, nome, senha }) {
+  async criar(@Body() { id, email, nome, senha }) {
     return await {
+      id,
       email,
       nome,
       senha,
@@ -14,5 +22,16 @@ export class UsuarioController {
   @Get()
   async listarTodos() {
     return await { usuarios: [] };
+<<<<<<< HEAD
+=======
+  }
+
+  @Get(':id')
+  async listarPorId(@Param() params) {
+    return await {
+      usuarios: {},
+      params,
+    };
+>>>>>>> usuario-controller
   }
 }
