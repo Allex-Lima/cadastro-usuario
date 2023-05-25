@@ -22,8 +22,6 @@ export class UsuarioController {
   @Get()
   async listarTodos() {
     return await { usuarios: [] };
-<<<<<<< HEAD
-=======
   }
 
   @Get(':id')
@@ -32,6 +30,5 @@ export class UsuarioController {
       usuarios: {},
       params,
     };
->>>>>>> usuario-controller
   }
 }
