@@ -28,20 +28,20 @@ export class UsuarioController {
   }
 
   @Get(':id')
-  async listarPorId(@Param() params) {
+  async listarPorId(@Param('id', ParseIntPipe) id: number) {
     return await {
       usuarios: {},
-      params,
+      id,
     };
   }
 
   @Put(':id')
   async atualizar(
     @Body() { email, nome, senha }: AtualizarUsuarioDTO,
-    @Param() params,
+    @Param('id', ParseIntPipe) id: number,
   ) {
     return await {
-      params,
+      id,
       email,
       nome,
       senha,
@@ -49,7 +49,7 @@ export class UsuarioController {
   }
 
   @Delete(':id')
-  async deletarUsuario(@Param() params) {
-    return await { params };
+  async deletarUsuario(@Param('id', ParseIntPipe) id: number) {
+    return await { id };
   }
 }
