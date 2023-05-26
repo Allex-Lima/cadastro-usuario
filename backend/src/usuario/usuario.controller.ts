@@ -8,13 +8,13 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { CriarUsuarioDTO } from './dto/criar-usuario.dto';
 
 @Controller('usuarios')
 export class UsuarioController {
   @Post()
-  async criar(@Body() { id, email, nome, senha }) {
+  async criar(@Body() { email, nome, senha }: CriarUsuarioDTO) {
     return await {
-      id,
       email,
       nome,
       senha,
