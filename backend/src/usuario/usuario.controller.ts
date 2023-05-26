@@ -9,6 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { CriarUsuarioDTO } from './dto/criar-usuario.dto';
+import { AtualizarUsuarioDTO } from './dto/atualizar-usuario.dto';
 
 @Controller('usuarios')
 export class UsuarioController {
@@ -35,10 +36,15 @@ export class UsuarioController {
   }
 
   @Put(':id')
-  async atualizar(@Body() body, @Param() params) {
+  async atualizar(
+    @Body() { email, nome, senha }: AtualizarUsuarioDTO,
+    @Param() params,
+  ) {
     return await {
       params,
-      body,
+      email,
+      nome,
+      senha,
     };
   }
 
